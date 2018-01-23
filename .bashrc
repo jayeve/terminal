@@ -62,11 +62,11 @@ parse_git_branch() {
 }
 #export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 if [ "$color_prompt" = yes ]; then
-    PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
     #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
     #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -75,7 +75,7 @@ unset color_prompt force_color_prompt
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
     #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
