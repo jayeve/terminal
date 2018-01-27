@@ -3,3 +3,5 @@ tmux # terminal multiplexer
 netcat # all around boss network tool
 mosh # mo(bile) sh: ssh that doesn't time out and close pipes.
 nmap # network mapper
+java # brew cask install java
+sbt # scala build tool
