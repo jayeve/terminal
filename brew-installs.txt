@@ -3,5 +3,20 @@ tmux # terminal multiplexer
 netcat # all around boss network tool
 mosh # mo(bile) sh: ssh that doesn't time out and close pipes.
 nmap # network mapper
-java # brew cask install java
 sbt # scala build tool
+wget # download files from urls
+html2text # what is sounds like
+jdnssec-tools
+lolcat # just do it and use it instead of cat
+asciinema # recording
+fish # enhanced repl
+
+# cask installs
+java
+macdown # for writing mark downs
+
+
+# just for fun
+cmatrix
+fortune
+cowsay
