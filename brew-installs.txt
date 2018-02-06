@@ -10,10 +10,12 @@ jdnssec-tools
 lolcat # just do it and use it instead of cat
 asciinema # recording
 fish # enhanced repl
+wine # run windows commands in linux
 
 # cask installs
 java
 macdown # for writing mark downs
+xquartz
 
 
 # just for fun
