@@ -16,6 +16,7 @@ wine # run windows commands in linux
 java
 macdown # for writing mark downs
 xquartz
+amethyst # automatic tiling window manager for macOS
 
 
 # just for fun
