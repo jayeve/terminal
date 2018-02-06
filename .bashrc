@@ -50,36 +50,48 @@ fi
 BLACK="\[\033[0;30m\]"
 RED="\[\033[0;31m\]"
 GREEN="\[\033[0;32m\]"
+FLASHING_GREEN="\[\033[5;32m\]"
 YELLOW="\[\033[0;33m\]"
 BLUE="\[\033[0;34m\]"
 PINK="\[\033[0;35m\]"
 CYAN="\[\033[0;36m\]"
 WHITE="\[\033[0;37m\]"
 PURPLE="\[\033[0;38m\]"
+ORANGE="\033[1;33m\]"
+STRIVE="\\033[95;38;5;202mStrive\\033[0m\]"
+#echo -e "\\033[48;5;95;38;5;214mhello world\\033[0m"
 
 parse_git_branch() {
         git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 #export PS1="\w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
 if [ "$color_prompt" = yes ]; then
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] \
+    && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[$GREEN\d @ \@$RED]\342\224\200[$STRIVE$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+      #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+      #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[$GREEN\d @ \@$RED]\342\224\200[$STRIVE$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+      #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+      #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;36m\]\w'; else echo '\[\033[01;36m\]\w'; fi)$RED]\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[\033[0;32m\]\d @ \@$RED]\342\224\200[${PINK}Jobs: \j$RED]  \n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
-    #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
+PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] \
+&& echo \"[$RED\342\234\227$COLL]\342\224\200\")\
+[$(if [[ ${EUID} == 0 ]];\
+  then echo '\[\033[01;36m\]\w';\
+else echo '\[\033[01;36m\]\w';\
+fi)$RED]\
+\342\224\200[$YELLOW\$(parse_git_branch)$RED]\342\224\200\[[$GREEN\d @ \@$RED]\342\224\200[$STRIVE$RED]  \
+\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+  #PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+  ;;
 *)
-    ;;
+  ;;
 esac
 # --------------------------------------------------------------------------
 
@@ -121,3 +133,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# fun
+cowsay "Welcome $USER! It's now $(date '+%A %B %d %Y %r')"
+alias cat='lolcat'
