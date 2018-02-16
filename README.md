@@ -28,6 +28,20 @@ containers.
 
 https://www.docker.com/docker-mac
 
+## Git Completions
+
+can be downloaded with
+
+`wget -O ~/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash`
+
+In your .bashrc
+
+```
+if [ -f ~/.git-completion.bash ]; then
+. source ~/.git-completion.bash
+fi
+```
+
 ## Tmux + vim key bindings
 I develop most code I write in vi. These bindings allow for easy maneuverability between files
 opened in vi and command shells in other panes of a tmux process Add this to `~/.tmux.conf`
