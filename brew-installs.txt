@@ -20,7 +20,7 @@ go
 pv # monitor progress of data through pipe
 siege # break shit
 ss # actually only a linux command, use netstat
-s
+jnettop # network tool
 
 # cask installs
 java
