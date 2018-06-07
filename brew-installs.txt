@@ -18,6 +18,10 @@ bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 go
 knock # port knocking
+pv # monitor progress of data through pipe
+siege # break shit
+ss # actually only a linux command, use netstat
+jnettop # network tool
 
 # cask installs
 java
@@ -30,3 +34,5 @@ amethyst # automatic tiling window manager for macOS
 cmatrix
 fortune
 cowsay
+gource
+sl
