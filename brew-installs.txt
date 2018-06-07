@@ -17,6 +17,7 @@ nethogs # bandwidth usage
 bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 go
+knock # port knocking
 
 # cask installs
 java
