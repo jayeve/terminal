@@ -1,4 +1,7 @@
 fzf # fuzzy finder for file complete and reverse search
+fd # helpful find command
+ripgrap # respect gitignore --- bash completions /usr/local/etc/bash_completion.d
+ag # Recursively search for PATTERN in PATH. Like grep or ack
 tmux # terminal multiplexer
 netcat # all around boss network tool
 mosh # mo(bile) sh: ssh that doesn't time out and close pipes.
@@ -17,10 +20,13 @@ nethogs # bandwidth usage
 bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 go
+knock
 pv # monitor progress of data through pipe
 siege # break shit
 ss # actually only a linux command, use netstat
 jnettop # network tool
+nload # network load tool
+masscan
 
 # cask installs
 java
