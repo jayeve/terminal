@@ -18,6 +18,12 @@ your command history (ctrl+r)
 `brew install fzf`
 
 To install useful key bindings and fuzzy completion:
+run the following
+
+```
+echo 'export FZF_DEFAULT_COMMAND="fd --type f"' >> ~/.fzf.bash
+echo 'export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"' >> ~/.fzf.bash
+```
 
 `$(brew --prefix)/opt/fzf/install`
 
