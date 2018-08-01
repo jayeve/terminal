@@ -30,7 +30,8 @@ jnettop # network tool
 jvmtop
 nload # network load tool
 masscan
-httpie
+httpie # like curl?
+rust
 
 # cask installs
 java
