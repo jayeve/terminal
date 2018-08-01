@@ -30,6 +30,7 @@ jnettop # network tool
 jvmtop
 nload # network load tool
 masscan
+httpie
 
 # cask installs
 java
