@@ -32,6 +32,8 @@ nload # network load tool
 masscan
 httpie # like curl?
 rust
+k6 # brew tap loadimpact/k6
+wrk # loadtesting
 
 # cask installs
 java
