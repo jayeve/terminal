@@ -37,6 +37,12 @@ rm $pi_home/*.tgz
 wget -O $pi_home/.fzf-key-bindings.bash https://raw.githubusercontent.com/jayeve/terminal/master/raspberry/fzf/key-bindings.bash
 #TODO still need to create .fzf.bash and source it
 
+# kubernetes
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+
+# spark
+
 # setup vim
 cd $pi_home && git clone https://github.com/jayeve/vimrc.git
 mv $pi_home/vimrc $pi_home/.vim_runtime

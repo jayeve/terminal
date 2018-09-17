@@ -31,15 +31,17 @@ PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$C
 [$LITEBLUE\w$RED]\
 \342\224\200[$YELLOW\$(parse_git_branch)$RED]\
 \342\224\200\[[$GREEN\d @ \@$RED]\
-\342\224\200[$STRIVE$RED]  \
-\n$RED\342\224\224\342\224\200\342\224\200\342\225\274[ROOT] \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+\342\224\200[${ORANGE}jobs: \j$RED]\
+\342\224\200[${CYAN}\$(parse_battery_power)$RED]  \
+\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
   else
 PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")\
 [$LITEBLUE\w$RED]\
 \342\224\200[$YELLOW\$(parse_git_branch)$RED]\
 \342\224\200\[[$GREEN\d @ \@$RED]\
-\342\224\200[$STRIVE$RED]  \
-\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
+\342\224\200[${ORANGE}jobs: \j$RED]\
+\342\224\200[${CYAN}\$(parse_battery_power)$RED]  \
+\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]home\\$ \[\e[0m\]"
 fi
 # --------------------------------------------------------------------------------------------------
 
@@ -55,11 +57,3 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
-
-# git completions
-if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
-fi
-
-# fun
-cowsay "Welcome $USER! It's now $(date '+%A %B %d %Y %r')"

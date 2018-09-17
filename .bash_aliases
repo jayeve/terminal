@@ -7,5 +7,24 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# make tmux play well with fancy prompt
+alias tmux="TERM=screen-256color-bce tmux"
+
+# a few helpful and silly git aliases
+alias yoda="git push --force"
+alias amend="git commit --amend"
+alias squash="git rebase -i origin/master"
+alias prune="docker system prune"
+alias token="~/strava/configuration/scripts/aws-token"
+alias python="python3.7"
+
+# handy open all files in vim
+alias all="vi -p *"
+
+alias ss="source ~/.bash_profile"
+
+alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
+alias batt="pmset -g batt"
+
 # make cat colorful
 alias cat='lolcat'
