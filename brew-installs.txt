@@ -43,6 +43,7 @@ amethyst # automatic tiling window manager for macOS
 
 
 # just for fun
+screenfetch
 cmatrix
 fortune
 cowsay
