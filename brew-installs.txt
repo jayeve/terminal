@@ -20,11 +20,6 @@ nethogs # bandwidth usage
 bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 nload # network load visualization
-gobuster
-john # john the ripper
-john-jumbo # Also password hacker?
-hydra # also password hacker
-masscan # nmap on crack
 go
 knock # port knocking
 pv # monitor progress of data through pipe
@@ -54,3 +49,11 @@ fortune
 cowsay
 gource
 sl
+
+# hacks
+gobuster # brute force
+john # john the ripper
+john-jumbo # Also password hacker?
+hydra # also password hacker
+masscan # nmap on crack
+sslyze
