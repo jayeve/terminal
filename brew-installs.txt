@@ -20,6 +20,10 @@ nethogs # bandwidth usage
 bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 nload # network load visualization
+gobuster
+john # john the ripper
+john-jumbo # Also password hacker?
+hydra # also password hacker
 masscan # nmap on crack
 go
 knock # port knocking
@@ -34,6 +38,7 @@ httpie # like curl?
 rust
 k6 # brew tap loadimpact/k6
 wrk # loadtesting
+openvpn # because obviously
 
 # cask installs
 java
