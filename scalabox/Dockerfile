@@ -12,7 +12,8 @@ run apt-get install -y cmake
 run apt-get install -y build-essential
 run apt-get install -y tcpdump
 run apt-get install -y tmux
-run apt-get install -y dig
+run apt-get install -y dnsutils
+run apt-get install -y net-tools
 
 # Setup home environment
 run useradd dev
@@ -71,4 +72,5 @@ run echo "root:root" | chpasswd
 run echo "dev:monkey" | chpasswd
 
 run chown -R dev: /home/dev
+run bash $HOME/.bash_profile
 user dev
