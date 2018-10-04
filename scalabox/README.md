@@ -2,6 +2,13 @@
 
 A minimal dockerized dev environment, build for x86_64 architecture
 
+Contains
+
+- jdk8
+- scala
+- sbt
+- assorted shell network commands handy for live debugging/triaging
+
 ## Build & Run
 
 Your first build may take a minute
