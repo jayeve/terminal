@@ -11,6 +11,16 @@ Contains
 
 ## Build & Run
 
+### From Dockerhub
+
+```
+docker pull jayeve/scalabox
+```
+
+![Scalabox Pull Demo GIF](https://github.com/jayeve/terminal/raw/master/scalabox/pull-demo.gif)
+
+### From the Dockerfile
+
 Your first build may take a minute
 
 ```

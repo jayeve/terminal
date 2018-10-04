@@ -53,6 +53,8 @@ run bash $HOME/.vim_runtime/install_awesome_vimrc.sh
 # setup bash + fzf
 run svn checkout https://github.com/jayeve/terminal/trunk/scalabox/dotfiles
 run cp $HOME/dotfiles/.bash* $HOME
+run cp $HOME/dotfiles/.fzf* $HOME
+run cp $HOME/dotfiles/.tmux* $HOME
 run rm -r dotfiles
 run git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
 run bash $HOME/.fzf/install
