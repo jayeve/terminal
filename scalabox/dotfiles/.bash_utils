@@ -1,0 +1,24 @@
+# colors
+BLACK="\[\033[0;30m\]"
+RED="\[\033[0;31m\]"
+GREEN="\[\033[0;32m\]"
+FLASHING_GREEN="\[\033[5;32m\]"
+YELLOW="\[\033[0;33m\]"
+BLUE="\[\033[0;34m\]"
+PINK="\[\033[0;35m\]"
+CYAN="\[\033[0;36m\]"
+WHITE="\[\033[0;37m\]"
+PURPLE="\[\033[0;38m\]"
+ORANGE="\033[95;38;5;202m"
+LITEBLUE="\[\033[01;36m\]"
+STRIVE="\\033[95;38;5;202mStrive\\033[0m\]"
+ROOT_USER="\\033[95;38;5;202mroot\\033[0m\]"
+#echo -e "\\033[48;5;95;38;5;214mhello world\\033[0m"
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+}
+
+parse_battery_power() {
+  pmset -g batt | awk '/%/' | awk '{print $3}' | cut -d ';' -f 1
+}
