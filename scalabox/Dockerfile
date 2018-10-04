@@ -12,6 +12,7 @@ run apt-get install -y cmake
 run apt-get install -y build-essential
 run apt-get install -y tcpdump
 run apt-get install -y tmux
+run apt-get install -y dig
 
 # Setup home environment
 run useradd dev
@@ -49,7 +50,7 @@ run mv $HOME/vimrc $HOME/.vim_runtime
 run bash $HOME/.vim_runtime/install_awesome_vimrc.sh
 
 # setup bash + fzf
-run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles
+run svn checkout https://github.com/jayeve/terminal/trunk/scalabox/dotfiles
 run cp $HOME/dotfiles/.bash* $HOME
 run rm -r dotfiles
 run git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
