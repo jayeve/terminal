@@ -24,7 +24,7 @@ env PKG_CONFIG_PATH /home/dev/lib/pkgconfig
 env LD_LIBRARY_PATH /home/dev/lib
 
 # install sbt
-arg sbt_version=1.0.4
+arg sbt_version=1.2.3
 run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb
 run dpkg -i sbt-${sbt_version}.deb
 run rm sbt-${sbt_version}.deb
@@ -53,7 +53,6 @@ run bash $HOME/.vim_runtime/install_awesome_vimrc.sh
 # setup bash + fzf
 run svn checkout https://github.com/jayeve/terminal/trunk/scalabox/dotfiles
 run cp $HOME/dotfiles/.bash* $HOME
-run cp $HOME/dotfiles/.fzf* $HOME
 run cp $HOME/dotfiles/.tmux* $HOME
 run rm -r dotfiles
 run git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf

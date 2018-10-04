@@ -14,7 +14,7 @@ Contains
 ### From Dockerhub
 
 ```
-docker pull jayeve/scalabox
+docker pull jayeve/scalabo
 ```
 
 ![Scalabox Pull Demo GIF](https://github.com/jayeve/terminal/raw/master/scalabox/pull-demo.gif)
