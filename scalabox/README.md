@@ -11,4 +11,4 @@ docker build -t jayeve/scalabox .
 docker run -it jayeve/scalabox
 ```
 
-![Scalabox GIF](https://github.com/jayeve/terminal/raw/master/scalabox/demo.gif)
+![Scalabox GIF](https://github.com/jayeve/terminal/raw/master/scalabox/demo2.gif)
