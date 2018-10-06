@@ -23,16 +23,6 @@ env PATH /home/dev/bin:$PATH
 env PKG_CONFIG_PATH /home/dev/lib/pkgconfig
 env LD_LIBRARY_PATH /home/dev/lib
 
-# install sbt
-arg sbt_version=1.2.3
-run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb
-run dpkg -i sbt-${sbt_version}.deb
-run rm sbt-${sbt_version}.deb
-run apt-get update
-run apt-get install sbt
-run sbt sbtVersion
-run apt-get install -y scala
-
 # Create a shared data volume
 # We need to create an empty file, otherwise the volume will
 # belong to root.
@@ -71,6 +61,17 @@ run echo "root:root" | chpasswd
 # set dev password; format => "user:password"
 # so this password is monkey
 run echo "dev:monkey" | chpasswd
+# setup scalabox project with a build.sbt # install sbt
+arg sbt_version=1.2.3
+run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb
+run dpkg -i sbt-${sbt_version}.deb
+run rm sbt-${sbt_version}.deb
+run apt-get update
+run apt-get install sbt
+run su - dev -c "sbt sbtVersion"
+run apt-get install -y scala
+add setup.sh $HOME/setup.sh
+run bash $HOME/setup.sh
 
 run chown -R dev: /home/dev
 run bash $HOME/.bash_profile
