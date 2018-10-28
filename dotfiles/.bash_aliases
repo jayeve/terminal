@@ -18,10 +18,10 @@ alias prune="docker system prune"
 alias token="~/strava/configuration/scripts/aws-token"
 alias python="python3.7"
 
-# handy open all files in vim
+alias vi="vim"
 alias all="vi -p *"
 
-alias ss="source ~/.bash_profile"
+alias sss="source ~/.bash_profile"
 
 alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
 alias batt="pmset -g batt"
