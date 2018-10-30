@@ -6,6 +6,7 @@ set number
 set t_Co=256 " lots of colors here
 set laststatus=2
 silent! colorscheme vividchalk
+hi Search cterm=NONE ctermfg=black ctermbg=red
 
 " search related
 set hlsearch " highlight search

@@ -57,3 +57,5 @@ john-jumbo # Also password hacker?
 hydra # also password hacker
 masscan # nmap on crack
 sslyze
+
+irssi # irc chat client
