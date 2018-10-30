@@ -15,6 +15,9 @@ au FileType scala nnoremap <leader>df :EnDeclaration<CR>
 autocmd BufWritePost *.scala silent :EnTypeCheck
 nnoremap <leader>t :EnType<CR>
 
+" cycle through deoplete suggestions with tab
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 
 """"""""""""""""""""""""""""""
 " => Snippets
