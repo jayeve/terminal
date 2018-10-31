@@ -33,6 +33,8 @@ Plug 'garbas/vim-snipmate'                            " engine for the snippts b
 Plug 'honza/vim-snippets'                             " code snippets
 Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
+Plug 'airblade/vim-gitgutter'
+Plug 'kien/rainbow_parentheses.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

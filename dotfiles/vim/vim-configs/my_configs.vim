@@ -55,6 +55,10 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Update time
+set updatetime=100
+
+
 """""""""""""""""""""
 " custom key mappings
 """""""""""""""""""""
