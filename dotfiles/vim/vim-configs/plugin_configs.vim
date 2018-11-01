@@ -70,7 +70,7 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 """"""""""""""""""""""""""""""
 
 " user Ctrl-j instead of <tab> so to not conflict with deoplete
-let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
