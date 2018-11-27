@@ -23,28 +23,6 @@ if [ -f ~/.bash_utils ]; then
   . ~/.bash_utils
 fi
 
-# fancy prompt. assumes xterm-256color
-# --------------------------------------------------------------------------------------------------
-if [ $(id -u) -eq 0 ];
-  then
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")\
-[$LITEBLUE\w$RED]\
-\342\224\200[$YELLOW\$(parse_git_branch)$RED]\
-\342\224\200\[[$GREEN\d @ \@$RED]\
-\342\224\200[${ORANGE}jobs: \j$RED]\
-\342\224\200[${CYAN}\$(parse_battery_power)$RED]  \
-\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$ \[\e[0m\]"
-  else
-PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$COLL]\342\224\200\")\
-[$LITEBLUE\w$RED]\
-\342\224\200[$YELLOW\$(parse_git_branch)$RED]\
-\342\224\200\[[$GREEN\d @ \@$RED]\
-\342\224\200[${ORANGE}jobs: \j$RED]\
-\342\224\200[${CYAN}\$(parse_battery_power)$RED]  \
-\n$RED\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]home\\$ \[\e[0m\]"
-fi
-# --------------------------------------------------------------------------------------------------
-
 # fuzzy finder for file search and command history
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
