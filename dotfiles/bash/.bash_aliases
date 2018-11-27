@@ -1,7 +1,3 @@
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -25,7 +21,3 @@ alias all="vi -p *"
 alias sss="source ~/.bash_profile"
 
 alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
-alias batt="pmset -g batt"
-
-# make cat colorful
-alias cat='lolcat'

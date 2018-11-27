@@ -18,7 +18,3 @@ ROOT_USER="\\033[95;38;5;202mroot\\033[0m\]"
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
-
-parse_battery_power() {
-  pmset -g batt | awk '/%/' | awk '{print $3}' | cut -d ';' -f 1
-}

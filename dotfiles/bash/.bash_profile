@@ -1,3 +1,9 @@
+# MacOS specific aliases go in here
+alias batt="pmset -g batt"
+parse_battery_power() {
+  pmset -g batt | awk '/%/' | awk '{print $3}' | cut -d ';' -f 1
+}
+
 # source bashrc first, then add everything here
 if [ -f "${HOME}/.bashrc" ] ; then
 . "${HOME}/.bashrc"
