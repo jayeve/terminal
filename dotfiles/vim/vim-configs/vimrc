@@ -39,7 +39,7 @@ Plug 'kien/rainbow_parentheses.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim', { 'tag': '4.1' }
+  Plug 'Shougo/deoplete.nvim', { 'commit': '1176c0f895278d0fd5ad312feea26406b481b577' }
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
