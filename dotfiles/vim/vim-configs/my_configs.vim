@@ -5,7 +5,8 @@ set relativenumber
 set number
 set t_Co=256 " lots of colors here
 set laststatus=2
-silent! colorscheme vividchalk
+silent! colorscheme gruvbox
+set background=dark
 hi Search cterm=NONE ctermfg=black ctermbg=red
 
 " search related
