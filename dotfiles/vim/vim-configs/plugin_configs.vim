@@ -83,7 +83,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 au FileType scala nnoremap <leader>df :EnDeclaration<CR>
 
 " typechecking
-autocmd BufWritePost *.scala silent :EnTypeCheck
+" autocmd BufWritePost *.scala silent :EnTypeCheck
 nnoremap <leader>t :EnType<CR>
 
 """"""""""""""""""""""""""""""

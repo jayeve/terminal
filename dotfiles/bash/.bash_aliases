@@ -14,6 +14,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias yoda="git push --force"
 alias amend="git commit --amend"
 alias squash="git rebase -i origin/master"
+alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
 alias prune="docker system prune"
 alias token="~/strava/configuration/scripts/aws-token"
 alias python="python3.7"
