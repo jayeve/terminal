@@ -36,3 +36,7 @@ PS1="$RED\342\224\214\342\224\200\$([[ \$? != 0 ]] && echo \"[$RED\342\234\227$C
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+if [ -f ~/.work_functions.bash ]; then
+  . ~/.work_functions.bash
+fi
