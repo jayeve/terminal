@@ -58,6 +58,7 @@ echo 'eval "$(rbenv init -)"' >> $pi_home/.profile
 # chown $(id -u):$(id -g) file
 
 # kubernetes setup gotchyas
+# add cgroups to /boot/cmdline.txt: cgroup_memory=memory cgroup_enable=memory
 # disable swap: sudo swapoff -a
 # generate token: kubeadm token create (no sudo or it'll hang)
 # on the master, you have to export the config to $HOME/.kube/config so

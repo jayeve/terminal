@@ -21,6 +21,7 @@ bash-completion # guess...and be sure to run `brew tap homebrew/homebrew-core`
 htop # run with root priviledges
 nload # network load visualization
 socat # multipurpose relay
+wireshark --with-qt # traffic sniffing
 go
 knock # port knocking
 pv # monitor progress of data through pipe
