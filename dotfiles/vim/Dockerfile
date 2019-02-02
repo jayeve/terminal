@@ -31,9 +31,11 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cd $HOME && \
     rm -rf $HOME/vim
 
+run mkdir $HOME/strava
+
 env FZF_DEFAULT_COMMAND="ag -l"
 env FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 run adduser -D -u 1000 dev && chown -R dev: /home/dev
 user dev
-cmd bash
+entrypoint ["/bin/bash", "-i" ]

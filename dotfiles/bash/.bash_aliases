@@ -15,6 +15,8 @@ alias prune="docker system prune"
 alias token="~/strava/configuration/scripts/aws-token"
 alias python="python3.7"
 
+alias fe='__fzf_select__'
+
 alias vi="vim"
 alias all="vi -p *"
 
