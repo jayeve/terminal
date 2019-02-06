@@ -10,7 +10,8 @@ run apk add --no-cache \
     the_silver_searcher \
     build-base \
     python3-dev \
-    openssh
+    openssh \
+    openssl
 
 workdir /home/dev
 env HOME /home/dev
@@ -31,11 +32,12 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cd $HOME && \
     rm -rf $HOME/vim
 
+run apk add --no-cache bash-completion
+
 run mkdir $HOME/strava
 
 env FZF_DEFAULT_COMMAND="ag -l"
 env FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 run adduser -D -u 1000 dev && chown -R dev: /home/dev
-user dev
 entrypoint ["/bin/bash", "-i" ]

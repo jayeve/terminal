@@ -8,3 +8,7 @@ echo 'name := "ScalaBox"
 version := "1.0"
 scalaVersion := "2.11.8"
 libraryDependencies += "com.github.pureconfig" %% "pureconfig" % "0.9.0"' > build.sbt
+
+mkdir -p ~/.sbt/0.13/plugins
+echo 'addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.9.1")
+addSbtPlugin("com.scalapenos" % "sbt-prompt" % "1.0.2")' > ~/.sbt/0.13/plugins/plugins.sbt
