@@ -1,8 +1,7 @@
-from openjdk:8
-
-arg sbt_version=0.13.16
+from ubuntu
 
 run apt-get update && apt-get install -yq git \
+    subversion \
     sudo \
     python \
     curl \
@@ -11,6 +10,7 @@ run apt-get update && apt-get install -yq git \
     pkg-config \
     cmake \
     build-essential \
+    python3-pip \
     tcpdump \
     tmux \
     dnsutils \
@@ -30,7 +30,6 @@ env HOME /home/dev
 
 # setup vim
 # configure bash and vim
-run apt-get install -yq python3-pip python3
 run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cp $HOME/dotfiles/bash/.bash_aliases $HOME && \
     cp $HOME/dotfiles/bash/.bash_utils $HOME && \
@@ -49,14 +48,8 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
 # set dev password; format => "user:password"
 # so this password is monkey
 run echo "dev:monkey" | chpasswd
-run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb && \
-    dpkg -i sbt-${sbt_version}.deb && \
-    rm sbt-${sbt_version}.deb && \
-    apt-get update && apt-get install -yq sbt scala
-add setup.sh $HOME/setup.sh
-#run bash $HOME/setup.sh && \
-#    su - dev -c "cd scalabox;sbt sbtVersion"
-run bash $HOME/setup.sh
+
+run curl https://sh.rustup.rs -sSf | sh -s -- -y && echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
 
 #run chown -R dev: /home/dev
 #user dev

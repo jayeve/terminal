@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 TAG=${1:-latest}
-image="jayeve/scalabox:$TAG"
+image="jayeve/rustbox:$TAG"
 docker build -t $image .
-#docker push $image
+docker push $image
