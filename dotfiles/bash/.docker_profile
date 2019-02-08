@@ -40,3 +40,6 @@ fi
 if [ -f ~/.work_functions.bash ]; then
   . ~/.work_functions.bash
 fi
+
+# because rustup
+[ -f ~/.profile ] && source ~/.profile
