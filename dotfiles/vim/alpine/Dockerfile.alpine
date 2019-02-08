@@ -1,28 +1,21 @@
-from ubuntu
+from alpine
 
-run apt-get update && apt-get install -yq git \
-    subversion \
-    sudo \
-    python \
+run apk add --no-cache \
     curl \
+    git \
+    subversion \
     vim \
-    diffstat \
-    pkg-config \
-    cmake \
-    build-essential \
-    python3-pip \
-    tcpdump \
-    tmux \
-    dnsutils \
-    net-tools \
-    silversearcher-ag \
-    scala && mkdir -p /home/dev \
+    py3-pip \
+    bash \
+    the_silver_searcher \
+    build-base \
+    python3-dev \
+    openssh \
+    openssl
 
 workdir /home/dev
 env HOME /home/dev
-env CONTAINER_NAME vimbox
 
-# setup vim
 # configure bash and vim
 run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cp $HOME/dotfiles/bash/.bash_aliases $HOME && \
@@ -39,4 +32,12 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cd $HOME && \
     rm -rf $HOME/vim
 
-entrypoint ["/bin/bash", "-i"]
+run apk add --no-cache bash-completion
+
+run mkdir $HOME/strava
+
+env FZF_DEFAULT_COMMAND="ag -l"
+env FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+run adduser -D -u 1000 dev && chown -R dev: /home/dev
+entrypoint ["/bin/bash", "-i" ]

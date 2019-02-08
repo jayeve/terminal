@@ -16,11 +16,17 @@ run apt-get update && apt-get install -yq git \
     dnsutils \
     net-tools \
     silversearcher-ag \
-    scala && mkdir -p /home/dev \
+    scala \
+    && useradd dev \
+    && mkdir /home/dev && chown -R dev: /home/dev \
+    && mkdir /var/shared/ \
+    && touch /var/shared/placeholder \
+    && chown -R dev:dev /var/shared
+
+volume /var/shared
 
 workdir /home/dev
 env HOME /home/dev
-env CONTAINER_NAME vimbox
 
 # setup vim
 # configure bash and vim
@@ -39,4 +45,13 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cd $HOME && \
     rm -rf $HOME/vim
 
+# set dev password; format => "user:password"
+# so this password is monkey
+run echo "dev:monkey" | chpasswd
+
+run curl https://sh.rustup.rs -sSf | sh -s -- -y && echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc
+
+#run chown -R dev: /home/dev
+#user dev
 entrypoint ["/bin/bash", "-i"]
+
