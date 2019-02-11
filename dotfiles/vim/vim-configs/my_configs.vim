@@ -45,7 +45,7 @@ endfun
 
 " Delete on save for some filetypes
 if has("autocmd")
-  autocmd BufWritePre *.txt,*.js,*.py,*.scala,*.yml,*.yaml,*.conf,*.rb :call CleanExtraSpace()
+  autocmd BufWritePre *.txt,*.md,*.rs,*.js,*.py,*.scala,*.yml,*.yaml,*.conf,*.rb :call CleanExtraSpace()
 endif
 
 " highlight it
