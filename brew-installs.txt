@@ -36,6 +36,7 @@ rust
 k6 # brew tap loadimpact/k6
 wrk # loadtesting
 openvpn # because obviously
+loc # breakdown of languages
 
 # cask installs
 java
