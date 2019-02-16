@@ -45,6 +45,14 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+# I use login shells in most sesssions,
+# and this source files in order as follows
+#   if /etc/profile exists, source (run) it
+#   if ~/.bash_profile exists, source (run) it
+#   if ~/.bash_login exists, source (run) it
+#   if ~/.profile exists, source (run) it
+#
+#   Once a match is found, the other files are ignored, even if they exist.
 [ -f ~/.bashrc ] && source ~/.bashrc
 # because rustup
 [ -f ~/.profile ] && source ~/.profile

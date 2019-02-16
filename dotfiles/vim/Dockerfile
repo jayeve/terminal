@@ -28,7 +28,7 @@ env CONTAINER_NAME vimbox
 run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cp $HOME/dotfiles/bash/.bash_aliases $HOME && \
     cp $HOME/dotfiles/bash/.bash_utils $HOME && \
-    cp $HOME/dotfiles/bash/.docker_profile $HOME/.bashrc && \
+    cp $HOME/dotfiles/bash/.docker_profile $HOME/.bash_profile && \
     cp $HOME/dotfiles/tmux/.tmux* $HOME && \
     rm -r dotfiles && \
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
