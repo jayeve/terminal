@@ -16,13 +16,18 @@ set ignorecase
 
 " indentation logic
 filetype indent on
+filetype plugin indent on
 set nowrap
-set tabstop=2
+set tabstop=4
 set shiftwidth=2
 set expandtab
 set smartindent
 set autoindent
 set backspace=indent,eol,start
+" highlight tabs
+highlight SpecialKey ctermfg=1
+set list
+set listchars=tab:T>
 
 " excludes from fuzzy find
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*target*
