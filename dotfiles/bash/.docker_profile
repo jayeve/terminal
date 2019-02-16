@@ -45,5 +45,6 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+[ -f ~/.bashrc ] && source ~/.bashrc
 # because rustup
 [ -f ~/.profile ] && source ~/.profile
