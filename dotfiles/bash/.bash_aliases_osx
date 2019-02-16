@@ -1,0 +1,54 @@
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# some cd aliases
+alias ..='cd ..'
+
+# make tmux play well with fancy prompt
+alias tmux="TERM=screen-256color-bce tmux"
+
+# a few helpful and silly git aliases
+alias g='git'
+alias glog='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"'
+alias new='git log $1@{1}..$1@{0} "$@"'
+alias yoda="git push --force"
+alias amend="git commit -a --amend -C HEAD"
+alias squash="git rebase -i origin/master"
+alias prune="docker system prune"
+alias token="~/strava/configuration/scripts/aws-token"
+alias python="python3.7"
+
+# handy open all files in vim
+alias vi="/usr/local/Cellar/vim/8.1.0500_1/bin/vim" # use brew's vim because --with-python3
+alias all="vi -p *"
+
+alias ss="source ~/.bash_profile"
+
+alias ifconfiga="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active' | egrep -o -m 1 '^[^\t:]+'"
+alias batt="pmset -g batt"
+
+# make cat colorful
+#alias cat='lolcat'
+
+# kubernetes
+alias k='kubectl'
+
+# docker
+alias sb='docker run --rm --name scalabox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/scalabox'
+alias vb='docker run --rm --name vimbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/vimbox'
+alias rb='docker run --rm --name rustbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/rustbox'
+# delete exited containers
+alias dke='docker rm $(docker ps -q -f status=exited)'
+
+# giter8 scala template
+alias st='g8 jayeve/scala-template.g8'
+
+# passwordless ssh
+alias master="ssh pi@69.215.146.63"
+alias k1="ssh pi@kubelet1.local"

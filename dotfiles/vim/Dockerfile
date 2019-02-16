@@ -40,4 +40,4 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     cd $HOME && \
     rm -rf $HOME/vim
 
-entrypoint ["/bin/bash", "-i"]
+entrypoint ["/bin/bash", "-l"]

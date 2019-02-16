@@ -1,8 +1,25 @@
+from jayeve/vimbox as builder
+
 from openjdk:8
 
-arg sbt_version=0.13.16
+workdir /home/dev
+env HOME /home/dev
 
-run apt-get update && apt-get install -yq git \
+# take only what we need from base image jayeve/vimbox (builder)
+copy --from=builder /home/dev/.vim /home/dev/.vim
+copy --from=builder /home/dev/.vimrc /home/dev/.vimrc
+copy --from=builder /home/dev/.bash_profile /home/dev/.bash_profile
+copy --from=builder /home/dev/.bashrc /home/dev/.bashrc
+copy --from=builder /home/dev/.bash_aliases /home/dev/.bash_aliases
+copy --from=builder /home/dev/.bash_utils /home/dev/.bash_utils
+copy --from=builder /home/dev/.fzf.bash /home/dev/.fzf.bash
+copy --from=builder /home/dev/.fzf /home/dev/.fzf
+
+# install scala + sbt
+arg sbt_version=0.13.16
+run apt-get update && apt-get install -yq \
+    git \
+    bash-completion \
     sudo \
     python \
     curl \
@@ -12,53 +29,24 @@ run apt-get update && apt-get install -yq git \
     cmake \
     build-essential \
     tcpdump \
-    tmux \
     dnsutils \
     net-tools \
-    silversearcher-ag \
-    scala \
-    && useradd dev \
-    && mkdir /home/dev && chown -R dev: /home/dev \
-    && mkdir /var/shared/ \
-    && touch /var/shared/placeholder \
-    && chown -R dev:dev /var/shared
+    silversearcher-ag
 
-volume /var/shared
-
-workdir /home/dev
-env HOME /home/dev
-
-# setup vim
-# configure bash and vim
-run apt-get install -yq python3-pip python3
-run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
-    cp $HOME/dotfiles/bash/.bash_aliases $HOME && \
-    cp $HOME/dotfiles/bash/.bash_utils $HOME && \
-    cp $HOME/dotfiles/bash/.docker_profile $HOME/.bashrc && \
-    cp $HOME/dotfiles/tmux/.tmux* $HOME && \
-    rm -r dotfiles && \
-    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
-    bash $HOME/.fzf/install && \
-    pip3 install sexpdata websocket-client neovim && \
-    svn checkout https://github.com/jayeve/terminal/trunk/dotfiles/vim && \
-    cd $HOME/vim && \
-    ./install.sh && \
-    cd $HOME && \
-    rm -rf $HOME/vim
-
-# set dev password; format => "user:password"
-# so this password is monkey
-run echo "dev:monkey" | chpasswd
 run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb && \
     dpkg -i sbt-${sbt_version}.deb && \
     rm sbt-${sbt_version}.deb && \
     apt-get update && apt-get install -yq sbt scala
 add setup.sh $HOME/setup.sh
 #run bash $HOME/setup.sh && \
-#    su - dev -c "cd scalabox;sbt sbtVersion"
-run bash $HOME/setup.sh
+run adduser --disabled-password --gecos '' dev && chown -R dev: /home/dev
+user dev
 
-#run chown -R dev: /home/dev
-#user dev
-entrypoint ["/bin/bash", "-i"]
+# run sbtVersion to "download the internet" in the image
+run bash $HOME/setup.sh && sbt sbtVersion
 
+# use a login shell because it looks for ~/.bash_profile first.
+# interactive shell looks for ~/.bashrc first and I don't have
+# as the first rc in the sourcing path. My bash_profile source
+# the bashrc
+entrypoint ["/bin/bash", "-l"]
