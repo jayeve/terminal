@@ -41,5 +41,9 @@ if [ -f ~/.work_functions.bash ]; then
   . ~/.work_functions.bash
 fi
 
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
 # because rustup
 [ -f ~/.profile ] && source ~/.profile

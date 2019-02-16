@@ -9,6 +9,7 @@ run apt-get update && apt-get install -yq git \
     diffstat \
     pkg-config \
     cmake \
+    bash-completion \
     build-essential \
     python3-pip \
     tcpdump \
