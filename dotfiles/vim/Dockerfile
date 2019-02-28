@@ -1,4 +1,4 @@
-from ubuntu
+from ubuntu:18.10 # Ubuntu cosmic
 
 run apt-get update && apt-get install -yq git \
     subversion \
@@ -16,7 +16,7 @@ run apt-get update && apt-get install -yq git \
     tmux \
     dnsutils \
     net-tools \
-    silversearcher-ag && \
+    ripgrep && \
     mkdir -p /home/dev
 
 workdir /home/dev

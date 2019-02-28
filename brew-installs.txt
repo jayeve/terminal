@@ -1,3 +1,4 @@
+vim # make sure python3 is in the PATH export PATH="/usr/local/Cellar/python/3.7.2_2/bin:$PATH"
 fzf # fuzzy finder for file complete and reverse search
 fd # helpful find command
 ripgrep # respect gitignore --- bash completions /usr/local/etc/bash_completion.d
