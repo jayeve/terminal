@@ -1,5 +1,11 @@
 # Install
 
+```bash
+git clone https://github.com/jayeve/terminal.git && cd dotfiles/vim && ./install.sh
 ```
-git clone https://github.com/jayeve/vim-dotfiles.git && cd vim-dotfiles && bash install.sh
+
+# Try it from a docker container
+
+```bash
+docker pull jayeve/vimbox
 ```
