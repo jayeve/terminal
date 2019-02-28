@@ -1,11 +1,10 @@
-from ubuntu:18.10 # Ubuntu cosmic
+from ubuntu:18.10
 
 run apt-get update && apt-get install -yq git \
     subversion \
     sudo \
     python \
     curl \
-    vim \
     diffstat \
     pkg-config \
     cmake \
@@ -13,6 +12,7 @@ run apt-get update && apt-get install -yq git \
     build-essential \
     python3-pip \
     tcpdump \
+    vim \
     tmux \
     dnsutils \
     net-tools \
