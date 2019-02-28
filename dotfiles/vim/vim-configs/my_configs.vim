@@ -18,7 +18,7 @@ set ignorecase
 filetype indent on
 filetype plugin indent on
 set nowrap
-set tabstop=4
+set tabstop=2
 set shiftwidth=2
 set expandtab
 set smartindent
