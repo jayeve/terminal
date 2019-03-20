@@ -1,3 +1,6 @@
+" ability to click with mouse
+set mouse=a
+
 " make the screen pretty
 syntax on
 set noshowmode " no longer need to show INSERT as it's on the status bar
