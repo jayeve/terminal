@@ -5,7 +5,6 @@ set mouse=a
 syntax on
 set noshowmode " no longer need to show INSERT as it's on the status bar
 set relativenumber
-set number
 set t_Co=256 " lots of colors here
 set laststatus=2
 silent! colorscheme gruvbox
