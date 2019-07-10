@@ -100,3 +100,10 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+fun! ToggleLineNumbers()
+  set number!
+  set relativenumber!
+endfun
+
+map <leader>l :call ToggleLineNumbers()
