@@ -108,4 +108,4 @@ fun! ToggleLineNumbers()
   set relativenumber!
 endfun
 
-map <leader>l :call ToggleLineNumbers()
+map <leader>l :call ToggleLineNumbers()<CR>
