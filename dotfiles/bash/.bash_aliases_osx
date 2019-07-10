@@ -39,6 +39,11 @@ alias batt="pmset -g batt"
 # kubernetes
 alias k='kubectl'
 
+# network shits
+function ip {
+ ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'
+}
+
 # docker
 alias sb='docker run --name scalabox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/scalabox'
 alias vb='docker run --name vimbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/vimbox'

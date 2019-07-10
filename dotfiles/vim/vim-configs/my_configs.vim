@@ -1,8 +1,10 @@
+" ability to click with mouse
+set mouse=a
+
 " make the screen pretty
 syntax on
 set noshowmode " no longer need to show INSERT as it's on the status bar
 set relativenumber
-set number
 set t_Co=256 " lots of colors here
 set laststatus=2
 silent! colorscheme gruvbox
@@ -50,7 +52,7 @@ endfun
 
 " Delete on save for some filetypes
 if has("autocmd")
-  autocmd BufWritePre *.txt,*.js,*.py,*.java,*.yml.erb,*.scala,*.yml,*.yaml,*.conf,*.rb :call CleanExtraSpace()
+  autocmd BufWritePre *.txt,*.js,*.py,*.java,*.yml.erb,*.rs,*.scala,*.yml,*.yaml,*.conf,*.rb :call CleanExtraSpace()
 endif
 
 " highlight it
