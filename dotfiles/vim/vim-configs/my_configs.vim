@@ -103,6 +103,11 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+" line numbers
+" ensure both line number and relative are set
+set number
+set relativenumber
+
 fun! ToggleLineNumbers()
   set number!
   set relativenumber!
