@@ -114,3 +114,9 @@ fun! ToggleLineNumbers()
 endfun
 
 map <leader>l :call ToggleLineNumbers()<CR>
+
+if has('macunix')
+  vmap <C-c> :w !pbcopy<CR><CR>
+  nmap <C-c> :.w !pbcopy<CR><CR>
+  noremap <C-v> :r !pbpaste<CR><CR>
+endif
