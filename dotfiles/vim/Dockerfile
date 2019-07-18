@@ -33,7 +33,7 @@ run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
     rm -r dotfiles && \
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
     bash $HOME/.fzf/install && \
-    pip3 install sexpdata websocket-client neovim && \
+    pip3 install pynvim sexpdata websocket-client neovim && \
     svn checkout https://github.com/jayeve/terminal/trunk/dotfiles/vim && \
     cd $HOME/vim && \
     ./install.sh && \
