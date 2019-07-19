@@ -1,6 +1,9 @@
-from ubuntu:18.10
+from ubuntu:19.10
 
-run apt-get update && apt-get install -yq git \
+# to avoid prompts for apt-get update
+env DEBIAN_FRONTEND=noninteractive
+run apt-get update && apt-get install -yq \
+    git \
     subversion \
     sudo \
     python \
@@ -12,7 +15,7 @@ run apt-get update && apt-get install -yq git \
     build-essential \
     python3-pip \
     tcpdump \
-    vim \
+    vim-gtk \
     tmux \
     dnsutils \
     net-tools \
