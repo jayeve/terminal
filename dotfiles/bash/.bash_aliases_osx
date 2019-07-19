@@ -45,9 +45,10 @@ function ip {
 }
 
 # docker
-alias sb='docker run --name scalabox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/scalabox'
-alias vb='docker run --name vimbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/vimbox'
-alias rb='docker run --name rustbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/rustbox'
+alias sb='docker run --rm --name scalabox -ti -v ~/.gitconfig:/home/dev/.gitconfig:ro -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/scalabox'
+alias vb='docker run --rm --name vimbox -ti -v ~/.gitconfig:/home/dev/.gitconfig:ro -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/vimbox'
+alias rb='docker run --rm --name rustbox -ti -v ~/.gitconfig:/home/dev/.gitconfig:ro -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/rustbox'
+alias pb='docker run --rm --name pybox -ti -v ~/.gitconfig:/home/dev/.gitconfig:ro -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/pybox'
 # delete exited containers
 alias dke='docker rm $(docker ps -q -f status=exited)'
 alias dui='docker container run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
