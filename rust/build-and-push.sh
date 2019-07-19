@@ -2,5 +2,5 @@
 
 TAG=${1:-latest}
 image="jayeve/rustbox:$TAG"
-docker build --no-cache -t $image .
-docker push $image
+docker build  -t $image .
+#docker push $image
