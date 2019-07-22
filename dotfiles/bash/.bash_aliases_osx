@@ -45,17 +45,15 @@ function ip {
 }
 
 function devbox() {
-  docker run \
-    --rm \
-    --name $1box \
-    -ti \
-    -v $(which docker):/usr/bin/docker:ro \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v ~/.gitconfig:/home/dev/.gitconfig:ro \
-    -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro \
-    -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro \
-    jayeve/$1box
+  local base=$HOME
+  if [ ! -f "$HOME/.devbox/$1/docker-compose.yml" ]; then
+    echo "docker-compose for $1box doesn't exist. Pulling now..."
+    mkdir -p $base/.devbox/$1
+    curl https://raw.githubusercontent.com/jayeve/terminal/master/rust/docker-compose.yml -o $base/.devbox/$1/docker-compose.yml
+  fi
+  docker-compose -f $base/.devbox/rust/docker-compose.yml run $1box
 }
+
 alias sb='devbox scala'
 alias vb='devbox vim'
 alias rb='devbox rust'

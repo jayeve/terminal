@@ -2,11 +2,17 @@ from jayeve/vimbox:latest
 
 env CONTAINER_NAME rustbox
 
-# add dev user ass a sudo user
 run groupadd -o -g 1000 dev && \
     useradd -o -r -m -u 1000 -g 1000 dev && \
     chown -R dev: /home/dev && \
     chown -R dev: /etc/bash_completion.d
+
+# add dev user as a sudo user
+# TODO move to vimbox because it's a base image type of thing FIXME
+run apt-get update && \
+    apt-get install -y --no-install-recommends sudo && \
+    usermod -aG sudo dev && \
+    echo "dev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # install docker deps
 run apt-get -y install apt-transport-https \
@@ -15,11 +21,13 @@ run apt-get -y install apt-transport-https \
     gnupg2 \
     software-properties-common
 
-# install docker
-run curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+# install docker and docker-compose
+run curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
     apt-get update && \
-    apt-get -y install docker-ce
+    apt-get -y install docker-ce && \
+    curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-Linux-x86_64" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose
 
 env USER dev
 env SHELL /bin/bash
