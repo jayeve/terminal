@@ -49,9 +49,9 @@ function devbox() {
   if [ ! -f "$HOME/.devbox/$1/docker-compose.yml" ]; then
     echo "docker-compose for $1box doesn't exist. Pulling now..."
     mkdir -p $base/.devbox/$1
-    curl https://raw.githubusercontent.com/jayeve/terminal/master/rust/docker-compose.yml -o $base/.devbox/$1/docker-compose.yml
+    curl https://raw.githubusercontent.com/jayeve/terminal/master/devbox/$1/docker-compose.yml -o $base/.devbox/$1/docker-compose.yml
   fi
-  docker-compose -f $base/.devbox/rust/docker-compose.yml run $1box
+  docker-compose -f $base/.devbox/$1/docker-compose.yml run $1box
 }
 
 alias sb='devbox scala'
