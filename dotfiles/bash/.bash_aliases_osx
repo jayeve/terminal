@@ -44,14 +44,18 @@ function ip {
  ifconfig en0 | grep inet | awk '$1=="inet" {print $2}'
 }
 
+function get_docker_compose() {
+  local base=$HOME
+  if [ ! -f "$base/.devbox/$1/docker-compose.yml" ]; then
+    echo "docker-compose for $1box doesn't exist. Pulling now..."
+    curl --fail https://raw.githubusercontent.com/jayeve/terminal/master/devbox/$1/docker-compose.yml -o tmp && \
+    mkdir -p $base/.devbox/$1 && mv tmp $base/.devbox/$1/docker-compose.yml
+  fi
+}
+
 function devbox() {
   local base=$HOME
-  if [ ! -f "$HOME/.devbox/$1/docker-compose.yml" ]; then
-    echo "docker-compose for $1box doesn't exist. Pulling now..."
-    mkdir -p $base/.devbox/$1
-    curl https://raw.githubusercontent.com/jayeve/terminal/master/devbox/$1/docker-compose.yml -o $base/.devbox/$1/docker-compose.yml
-  fi
-  docker-compose -f $base/.devbox/$1/docker-compose.yml run $1box
+  get_docker_compose $1 && docker-compose -f $base/.devbox/$1/docker-compose.yml run $1box
 }
 
 alias sb='devbox scala'
