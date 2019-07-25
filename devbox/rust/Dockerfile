@@ -2,6 +2,8 @@ from jayeve/vimbox:latest
 
 env CONTAINER_NAME rustbox
 
+run apt-get install libssl-dev
+
 env USER dev
 workdir /home/dev
 
