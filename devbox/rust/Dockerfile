@@ -10,7 +10,8 @@ workdir /home/dev
 user dev
 
 # install rust with rustup and rustup bash completions
-run curl https://sh.rustup.rs -sSf | sh -s -- -y
+run curl https://sh.rustup.rs -sSf | sh -s -- -y && \
+    rustup component add rustfmt --toolchain stable-x86_64-unknown-linux-gnu
 # FIXME rustup on source
 #rustup completions bash > /etc/bash_completion.d/rustup.bash-completion >> ~/.bashrc
 
