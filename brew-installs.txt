@@ -4,6 +4,7 @@ fd # helpful find command
 ripgrep # respect gitignore --- bash completions /usr/local/etc/bash_completion.d
 ag # Recursively search for PATTERN in PATH. Like grep or ack
 giter8 # templates
+tig # nice git log print
 tmux # terminal multiplexer
 netcat # all around boss network tool
 mosh # mo(bile) sh: ssh that doesn't time out and close pipes.
