@@ -49,4 +49,4 @@ run bash $HOME/setup.sh && sbt sbtVersion
 # interactive shell looks for ~/.bashrc first and I don't have
 # as the first rc in the sourcing path. My bash_profile source
 # the bashrc
-:x
+entrypoint ["/bin/bash", "-l"]

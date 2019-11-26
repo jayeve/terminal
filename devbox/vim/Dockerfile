@@ -10,6 +10,7 @@ run apt-get update && apt-get install -yq \
     sudo \
     python \
     curl \
+    tig \
     diffstat \
     pkg-config \
     cmake \
