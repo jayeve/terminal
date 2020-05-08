@@ -1,6 +1,9 @@
 " ability to click with mouse
 set mouse=a
 
+" cd to directory of current file and print out new cur dir
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 " make the screen pretty
 syntax on
 set noshowmode " no longer need to show INSERT as it's on the status bar
