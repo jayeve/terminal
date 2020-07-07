@@ -78,6 +78,15 @@ let mapleader = ","
 " allow sourcing of vim without re-opening
 map <leader>s :source ~/.vimrc<CR>
 
+" window controls
+" maximize window vertically
+map <leader>- <C-w>_
+" equalize windows
+map <leader>= <C-w>=
+
+" maximize window horizontally
+map <leader>| <C-w>|
+
 " map spacebar to search
 map <Space> /
 
