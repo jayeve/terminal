@@ -45,3 +45,7 @@ function git_branch {
 parse_battery_power() {
   pmset -g batt | awk '/%/' | awk '{print $3}' | cut -d ';' -f 1
 }
+
+topcommands() {
+  history | awk 'BEGIN {FS="[ \t]+|\\|"} {print $3}' | sort | uniq -c | sort -nr | head -n ${1:-5}
+}
