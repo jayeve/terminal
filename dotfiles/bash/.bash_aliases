@@ -7,6 +7,8 @@ alias l='ls -CF'
 alias tmux="TERM=screen-256color-bce tmux"
 
 # a few helpful and silly git aliases
+alias getdefault="git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+alias setdefault="git remote set-head origin --auto"
 alias yoda="git push --force"
 alias fixup="git commit --fixup=HEAD"
 alias amend="git commit --amend"

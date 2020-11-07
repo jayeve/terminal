@@ -37,6 +37,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -52,5 +55,4 @@ call plug#end()
 " My Configs
 set cursorline
 source ~/.vim/my_configs.vim
-
 source ~/.vim/plugin_configs.vim " mappings/settings specific to the above plugins
