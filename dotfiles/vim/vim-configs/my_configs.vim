@@ -84,8 +84,8 @@ map <leader>- <C-w>_
 " equalize windows
 map <leader>= <C-w>=
 
-" maximize window horizontally
-map <leader>| <C-w>|
+" temporarily expand current window
+:noremap tt :tab split<CR>
 
 " map spacebar to search
 map <Space> /
