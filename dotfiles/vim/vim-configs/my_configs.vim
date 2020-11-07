@@ -86,6 +86,8 @@ map <leader>= <C-w>=
 
 " temporarily expand current window
 :noremap tt :tab split<CR>
+" equalize the windows
+:noremap == <C-w>=
 
 " map spacebar to search
 map <Space> /
