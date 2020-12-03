@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 function get_docker_compose() {
   local base=$HOME
   if [ ! -f "$base/.devbox/$1/docker-compose.yml" ]; then
