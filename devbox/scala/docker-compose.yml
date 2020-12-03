@@ -2,7 +2,7 @@ version: "3"
 services:
   scalabox:
     container_name: scalabox
-    image: jayeve/scalabox
+    image: jayeve/scalabox:${TAG}
     environment:
       - DOCKER_HOST=tcp://socat:2375
     links:
@@ -11,6 +11,7 @@ services:
       - ~/.gitconfig:/home/dev/.gitconfig:ro
       - ~/.work_functions.bash:/home/dev/.work_functions.bash:ro
       - ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro
   socat:
      image: bpack/socat
      command: TCP4-LISTEN:2375,fork,reuseaddr UNIX-CONNECT:/var/run/docker.sock

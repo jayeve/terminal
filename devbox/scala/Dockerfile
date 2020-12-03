@@ -1,49 +1,90 @@
-from jayeve/vimbox as builder
+from openjdk:11.0.6
 
-from openjdk:8
+# Env variables
+arg SCALA_VERSION
+env SCALA_VERSION ${SCALA_VERSION:-2.12.12}
+arg SBT_VERSION
+env SBT_VERSION ${SBT_VERSION:-1.4.3}
+env SHELL /bin/bash
+env CONTAINER_NAME scalabox
 
+run mkdir -p /home/dev
 workdir /home/dev
 env HOME /home/dev
 
-# take only what we need from base image jayeve/vimbox (builder)
-copy --from=builder /home/dev/.vim /home/dev/.vim
-copy --from=builder /home/dev/.vimrc /home/dev/.vimrc
-copy --from=builder /home/dev/.bash_profile /home/dev/.bash_profile
-copy --from=builder /home/dev/.bashrc /home/dev/.bashrc
-copy --from=builder /home/dev/.bash_aliases /home/dev/.bash_aliases
-copy --from=builder /home/dev/.bash_utils /home/dev/.bash_utils
-copy --from=builder /home/dev/.fzf.bash /home/dev/.fzf.bash
-copy --from=builder /home/dev/.fzf /home/dev/.fzf
-
-# install scala + sbt
-arg sbt_version=0.13.16
+# to avoid prompts for apt-get update
+env DEBIAN_FRONTEND=noninteractive
 run apt-get update && apt-get install -yq \
     git \
-    bash-completion \
+    subversion \
     sudo \
     python \
     curl \
-    vim \
+    tig \
     diffstat \
     pkg-config \
     cmake \
+    bash-completion \
     build-essential \
+    python3-pip \
     tcpdump \
+    vim-gtk \
+    vim \
+    tmux \
     dnsutils \
     net-tools \
-    silversearcher-ag
+    ripgrep
 
-run curl -L -o sbt-${sbt_version}.deb http://dl.bintray.com/sbt/debian/sbt-${sbt_version}.deb && \
-    dpkg -i sbt-${sbt_version}.deb && \
-    rm sbt-${sbt_version}.deb && \
-    apt-get update && apt-get install -yq sbt scala
+# create /home/dev as working dir with vim/bash setup
+run svn checkout https://github.com/jayeve/terminal/trunk/dotfiles && \
+    cp $HOME/dotfiles/bash/.bash_aliases $HOME && \
+    cp $HOME/dotfiles/bash/.bash_utils $HOME && \
+    cp $HOME/dotfiles/bash/.docker_profile $HOME/.bash_profile && \
+    cp $HOME/dotfiles/tmux/.tmux* $HOME && \
+    rm -r dotfiles && \
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf && \
+    bash $HOME/.fzf/install && \
+    pip3 install pynvim sexpdata websocket-client neovim && \
+    svn checkout https://github.com/jayeve/terminal/trunk/dotfiles/vim && \
+    cd $HOME/vim && \
+    ./install.sh && \
+    cd $HOME && \
+    rm -rf $HOME/vim
+
+# install scala
+run apt-get install -yq openjdk-11-jre-headless
+arg SCALA_VERSION
+env SCALA_VERSION ${SCALA_VERSION:-2.12.12}
+run wget www.scala-lang.org/files/archive/scala-$SCALA_VERSION.deb && \
+    dpkg -i scala-$SCALA_VERSION.deb && \
+    apt-get update && \
+    apt-get -f install
+
+# install sbt
+run echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 && \
+    apt-get update && \
+    apt-get install -yq sbt
+
+run sbt sbtVersion
+
+# install docker deps, docker, and docker-compose
+run apt-get install -yq \
+    apt-transport-https \
+    ca-certificates \
+    gnupg-agent \
+    software-properties-common && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
+    apt-get update && apt-get install -yq \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io
+
+# get docker-compose?
+
 add setup.sh $HOME/setup.sh
-#run bash $HOME/setup.sh && \
-run adduser --disabled-password --gecos '' dev && chown -R dev: /home/dev
-user dev
-
-# run sbtVersion to "download the internet" in the image
-run bash $HOME/setup.sh && sbt sbtVersion
+run bash $HOME/setup.sh
 
 # use a login shell because it looks for ~/.bash_profile first.
 # interactive shell looks for ~/.bashrc first and I don't have

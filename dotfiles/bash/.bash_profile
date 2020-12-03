@@ -30,14 +30,9 @@ export PATH="/opt/etcher-cli:$PATH"
 export SPARK_HOME=/usr/local/lib/python3.6/site-packages/pyspark
 eval "$(rbenv init -)"
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-export PUBLIC_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+#export PUBLIC_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 
 # docker completions
 curl -XGET https://raw.githubusercontent.com/docker/cli/master/contrib/completion/bash/docker > $(brew --prefix)/etc/bash_completion.d/docker
-
-# docker boxes
-alias sb='docker run --rm --name scalabox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro-v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/scalabox'
-alias vb='docker run --rm --name vimbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/vimbox'
-alias rb='docker run --rm --name rustbox -ti -v ~/.work_functions.bash:/home/dev/.work_functions.bash:ro -v ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro jayeve/rustbox'
