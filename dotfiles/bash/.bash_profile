@@ -36,3 +36,24 @@ eval "$(rbenv init -)"
 
 # docker completions
 curl -XGET https://raw.githubusercontent.com/docker/cli/master/contrib/completion/bash/docker > $(brew --prefix)/etc/bash_completion.d/docker
+
+function prj {
+  local base=$HOME/strava
+  if [ ! -d "$HOME/strava" ]; then
+    mkdir $HOME/strava
+  fi
+  local project=$1
+  local project_dir=$base/$project
+  if [ ! -d "$project_dir" ]; then
+    cd $base && git clone git@github.com:strava/$project.git
+  fi
+
+  cd $project_dir
+}
+
+_prj() {
+  local cur prev opts
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  opts=$(cd $HOME/strava ; ls)
+  COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+}

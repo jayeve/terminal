@@ -10,7 +10,7 @@ services:
     volumes:
       - ~/.cache/coursier/v1:/root/.cache/coursier/v1
       - ~/.ivy2:/root/.ivy2
-      - ~/scratch:/home/dev/scratch
+      - ~/strava:/home/dev/strava
       - ~/.gitconfig:/home/dev/.gitconfig:ro
       - ~/.work_functions.bash:/home/dev/.work_functions.bash:ro
       - ~/.ssh/id_rsa:/home/dev/.ssh/id_rsa:ro
