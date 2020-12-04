@@ -31,7 +31,6 @@ Plug 'tomtom/tlib_vim'                                " needed for vim-snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'                   " needed for vim-snipmate
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'                             " code snippets
-Plug 'ensime/ensime-vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/rainbow_parentheses.vim'
@@ -40,14 +39,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim', { 'commit': '1176c0f895278d0fd5ad312feea26406b481b577' }
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 filetype plugin indent on
 call plug#end()
