@@ -66,42 +66,6 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 
 
 """"""""""""""""""""""""""""""
-" => ultisnips
-""""""""""""""""""""""""""""""
-
-" user Ctrl-j instead of <tab> so to not conflict with deoplete
-let g:UltiSnipsExpandTrigger="<C-e>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-
-""""""""""""""""""""""""""""""
-" => ensime
-""""""""""""""""""""""""""""""
-
-" go to declaration
-au FileType scala nnoremap <leader>df :EnDeclaration<CR>
-
-" typechecking
-" autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <leader>t :EnType<CR>
-
-""""""""""""""""""""""""""""""
-" => deoplete
-""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-
-" cycle through deoplete suggestions with tab, backwards with shift+tab
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr><S-tab> pumvisible() ? "\<c-p>" : "\<tab>"
-
-" set up where deoplete sources completion suggestions
-let g:deoplete#sources={}
-let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
-let g:deoplete#omni#input_patterns={}
-let g:deoplete#omni#input_patterns.scala='[^. *\t]\.\w*'
-
-""""""""""""""""""""""""""""""
 " => neoclide/coc.nvim
 """"""""""""""""""""""""""""""
 " Configuration for coc.nvim

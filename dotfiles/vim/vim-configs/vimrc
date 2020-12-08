@@ -29,7 +29,6 @@ Plug 'jlanzarotta/bufexplorer'                        " Bufexplorer
 Plug 'itchyny/lightline.vim'                          " status line
 Plug 'tomtom/tlib_vim'                                " needed for vim-snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'                   " needed for vim-snipmate
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'                             " code snippets
 Plug 'derekwyatt/vim-scala'
 Plug 'airblade/vim-gitgutter'
