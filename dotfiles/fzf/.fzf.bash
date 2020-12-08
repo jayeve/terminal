@@ -21,7 +21,7 @@ fe() {
   local __files
   OLDIFS=$IFS
   IFS=$'\n' __files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$__files" ]] && ${EDITOR:-vim} "${__files[@]}" && IFS=$OLDIFS
+  [[ -n "$__files" ]] && ${EDITOR:-vim} "${__files[@]}" && IFS=$OLDIFS || IFS=$OLDIFS
 }
 
 # fd [FUZZY PATTERN] - Open the selected folder
