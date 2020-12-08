@@ -45,3 +45,6 @@ fi
 _fzf_compgen_dir() {
   rg --hidden --files --null "$1" 2 > /dev/null | xargs -0 "$dirname_command" | awk '!h[$0]++'
 }
+
+export FZF_DEFAULT_COMMAND='rg -L --files --hidden'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
