@@ -71,3 +71,9 @@ irssi # irc chat client
 # language optical character recognition (ocr)
 tesseract
 tesseract-lang
+
+# security
+afl-fuzz
+ssss
+sqlmap
+nmap
