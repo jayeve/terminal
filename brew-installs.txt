@@ -77,3 +77,4 @@ afl-fuzz
 ssss
 sqlmap
 nmap
+fwknop
