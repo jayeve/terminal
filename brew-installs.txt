@@ -14,6 +14,7 @@ mosh # mo(bile) sh: ssh that doesn't time out and close pipes.
 nmap # network mapper
 sbt # scala build tool
 wget # download files from urls
+axel # download faster(?)
 html2text # what is sounds like
 jdnssec-tools
 lolcat # just do it and use it instead of cat
