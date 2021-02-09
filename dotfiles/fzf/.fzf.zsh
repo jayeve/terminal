@@ -12,3 +12,6 @@ fi
 # ------------
 [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ] && source /usr/local/opt/fzf/shell/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+export FZF_DEFAULT_COMMAND='rg -L --files --hidden'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
