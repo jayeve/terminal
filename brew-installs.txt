@@ -79,3 +79,4 @@ ssss
 sqlmap
 nmap
 fwknop
+recon-ng
