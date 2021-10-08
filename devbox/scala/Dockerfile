@@ -4,7 +4,7 @@ from openjdk:11.0.6
 arg SCALA_VERSION
 env SCALA_VERSION ${SCALA_VERSION:-2.12.12}
 arg SBT_VERSION
-env SBT_VERSION ${SBT_VERSION:-1.4.3}
+env SBT_VERSION ${SBT_VERSION:-1.5.5}
 env SHELL /bin/bash
 env CONTAINER_NAME scalabox
 
@@ -61,12 +61,12 @@ run wget www.scala-lang.org/files/archive/scala-$SCALA_VERSION.deb && \
     apt-get -f install
 
 # install sbt
-run echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 && \
+run curl -L -o sbt-$SBT_VERSION.deb https://repo.scala-sbt.org/scalasbt/debian/sbt-$SBT_VERSION.deb && \
+    dpkg -i sbt-$SBT_VERSION.deb && \
+    rm sbt-$SBT_VERSION.deb && \
     apt-get update && \
-    apt-get install -yq sbt
-
-run sbt sbtVersion
+    apt-get install sbt && \
+    sbt sbtVersion
 
 # install docker deps, docker, and docker-compose
 run apt-get install -yq \
