@@ -31,6 +31,7 @@ run apt-get update && apt-get install -yq \
     vim-gtk \
     vim \
     tmux \
+    less \
     dnsutils \
     net-tools \
     ripgrep
