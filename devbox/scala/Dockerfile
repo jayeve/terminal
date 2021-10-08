@@ -83,6 +83,12 @@ run apt-get install -yq \
 
 # get docker-compose?
 
+# intall aws
+run curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    sudo ./aws/install && \
+    ./aws/install -i /usr/local/aws -b /usr/local/bin
+
 add setup.sh $HOME/setup.sh
 run bash $HOME/setup.sh
 
