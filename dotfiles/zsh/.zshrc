@@ -77,3 +77,5 @@ source_if_exists "$HOME/.work_functions.zsh"
 source_if_exists "$HOME/.zsh_aliases"
 source_if_exists "$HOME/.aws/token_profile"
 
+# autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh

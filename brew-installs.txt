@@ -80,3 +80,6 @@ sqlmap
 nmap
 fwknop
 recon-ng
+
+autojump # terminal navigation
+zsh-autosuggestions
