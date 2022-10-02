@@ -15,6 +15,7 @@ nmap # network mapper
 sbt # scala build tool
 wget # download files from urls
 axel # download faster(?)
+fio # flexible IO tester
 html2text # what is sounds like
 jdnssec-tools
 lolcat # just do it and use it instead of cat
@@ -43,6 +44,7 @@ k6 # brew tap loadimpact/k6
 wrk # loadtesting
 openvpn # because obviously
 loc # breakdown of languages
+gh # some github status checker?
 
 # cask installs
 java
