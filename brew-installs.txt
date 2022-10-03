@@ -85,3 +85,10 @@ recon-ng
 
 autojump # terminal navigation
 zsh-autosuggestions
+
+# kubernetes
+k9s
+helm
+kubectl
+octant
+docker-compose
