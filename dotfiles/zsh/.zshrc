@@ -1,6 +1,8 @@
 # profile startup
 zmodload zsh/zprof
 
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
 plugins=(docker docker-compose)
@@ -10,9 +12,6 @@ function extend_path() {
 }
 # source a script, if it exists
 function source_if_exists() { [[ -s $1 ]] && source $1 }
-
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/jevans/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

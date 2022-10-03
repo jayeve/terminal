@@ -27,6 +27,26 @@ echo 'export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"' >> ~/.fzf.bash
 
 `$(brew --prefix)/opt/fzf/install`
 
+## oh-my-zsh
+
+1. Install oh-my-zsh. You may need to run as sudo
+```
+brew install wget
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+```
+2. recopy `.zprofile` and `.zshrc` to `$HOME` directory
+3. Move j.zsh-theme into the themes directory
+```zsh
+cp ~/terminal/dotfiles/zsh/j.zsh-theme ~/.oh-my-zsh/themes/
+```
+4. run the following
+```zsh
+echo '# Set PATH, MANPATH, etc., for Homebrew.' >> $HOME/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+
 ## Docker for mac
 Docker is like github for runnable code. It's a liteweight virtual machine that emulates
 the Linux environment. It's used to quickly download and deploy processes/services in
