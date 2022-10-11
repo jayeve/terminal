@@ -7,6 +7,7 @@ ag # Recursively search for PATTERN in PATH. Like grep or ack
 giter8 # templates
 tig # nice git log print
 tmux # terminal multiplexer
+tmux-mem-cpu-load
 reattach-to-user-namespace # needed along with tmux
 git # source control
 netcat # all around boss network tool
